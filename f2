@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alphabetical Order</title>
+    <script>
+        function sortWords() {
+            // Get the list items
+            var list = document.getElementById("wordList");
+            var items = list.getElementsByTagName("li");
+
+            // Convert items to array and sort alphabetically
+            var sortedItems = Array.from(items).sort(function(a, b) {
+                return a.textContent.localeCompare(b.textContent);
+            });
+
+            // Clear the original list
+            while (list.firstChild) {
+                list.removeChild(list.firstChild);
+            }
+
+            // Append sorted items back to the list
+            sortedItems.forEach(function(item) {
+                list.appendChild(item);
+            });
+        }
+    </script>
+</head>
+<body>
+    <h1>Order Words Alphabetically</h1>
+    <button onclick="sortWords()">Sort Words</button>
+    <ul id="wordList">
+        <li>Apple</li>
+        <li>Orange</li>
+        <li>Banana</li>
+        <li>Pineapple</li>
+        <li>Grapes</li>
+    </ul>
+</body>
+</html>
